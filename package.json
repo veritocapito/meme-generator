@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@fontsource-variable/exo-2": "^5.0.17",
+    "@fontsource-variable/fira-code": "^5.0.16",
+    "@fontsource/nanum-pen-script": "^5.0.11"
+  }
+}
