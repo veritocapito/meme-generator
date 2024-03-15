@@ -1,4 +1,12 @@
-@import '@fontsource/nanum-pen-script';
+/* nanum-pen-script-latin-400-normal */
+@font-face {
+  font-family: 'Nanum Pen Script';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+  src: url(https://cdn.jsdelivr.net/fontsource/fonts/nanum-pen-script@latest/latin-400-normal.woff2) format('woff2'), url(https://cdn.jsdelivr.net/fontsource/fonts/nanum-pen-script@latest/latin-400-normal.woff) format('woff');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
 
 * {
   margin: 0;
@@ -7,29 +15,31 @@
 }
 
 body.dark-theme {
-  --color-header-footer: #061231;
-  --color-background: #242b3d;
-  --color-panel: #1c2439;
+  --color-header: #061231;
+  --color-background: #061231;
+  --color-meme-container: #3a4155;
+  --color-panel: #242b3d;
   --color-boton-default: #393e49;
   --color-boton-default-hover: #4e5565;
   --color-main-text: #2fa3ca;
   --color-title-panel: #2fa3ca;
   --color-text: #ddd;
-  --font-primary: 'Open Sans', sans-serif;
+  --font-primary: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
   --border-radius: 3px;
 }
 
 body.light-theme {
-  --color-header: #e0e0e0;
-  --color-background: #eeeeee;
-  --color-panel: #fafafa;
-  --color-boton-default: #e0e0e0;
+  --color-header: #c0c0c0;
+  --color-background: #a5a0a0;
+  --color-meme-container: #e0dddd;
+  --color-panel: #ebebeb;
+  --color-boton-default: #a5a0a0;
   --color-boton-default-hover: #bdbdbd;
-  --color-main-text:#02043e;
-  --color-text: #424242;
+  --color-main-text: #061231;
+  --color-text: #2c2c2c;
   --color-title-panel: rgb(33 33 33 / 80%);
   --color-title-control: rgb(33 33 33 / 70%);
-  --font-primary: 'Open Sans', sans-serif;
+  --font-primary: 'Gill Sans', 'Gill Sans MT', 'Trebuchet MS', sans-serif;
   --border-radius: 3px;
 }
 
@@ -68,7 +78,7 @@ label {
 }
 
 textarea {
-  resize: vertical;
+  resize: none;
 }
 
 input[type='range'] {
@@ -108,7 +118,7 @@ input[type='color']::-webkit-color-swatch {
 /* Layout */
 
 header {
-  background-color: var(--color-header-footer);
+  background-color: var(--color-background);
 }
 
 nav {
@@ -133,18 +143,18 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-background);
+  background-color: var(--color-meme-container);
   padding: 20px;
 }
 
 .panel {
-  width: 260px;
+  width: 280px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   background-color: var(--color-panel);
-  padding: 15px;
+  padding: 10px;
   overflow: auto;
   position: fixed;
   top: 0;
@@ -157,7 +167,7 @@ nav {
 /* Button */
 
 .button {
-  height: 36px;
+  height: 32px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -173,8 +183,6 @@ nav {
   color: var(--color-main-text);
 }
 
-.button-text:hover,
-.button-text:focus,
 .button-default:hover,
 .button-default:focus {
   background-color: var(--color-boton-default-hover);
@@ -191,7 +199,6 @@ nav {
 .buttons-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.6rem;
 }
 
 .buttons-container .button {
@@ -207,16 +214,6 @@ nav {
   margin-right: 0;
 }
 
-.light-theme .button-theme-light,
-.dark-theme .button-theme-dark {
-  display: flex;
-}
-
-.dark-theme .button-theme-light,
-.light-theme .button-theme-dark {
-  display: none;
-}
-
 /* Panel Control */
 
 .panel-title {
@@ -229,8 +226,8 @@ nav {
 
 .panel-close-button {
   position: fixed;
-  top: 15px;
-  right: 15px;
+  top: 35px;
+  right: 35px;
   border-radius: 3px;
   cursor: pointer;
 }
@@ -254,12 +251,12 @@ nav {
 
 .panel-control-input {
   width: 100%;
-  height: 36px;
+  height: 32px;
   background-color: var(--color-boton-default);
   border-radius: var(--border-radius);
   transition: background-color 0.2s;
   padding: 5px 10px;
-  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 .panel-control-input:hover,
@@ -288,6 +285,7 @@ nav {
   position: relative;
   height: 36px;
   display: flex;
+  top: 50%;
 }
 
 .panel-control-color>input[type='color'] {
@@ -297,7 +295,6 @@ nav {
 .panel-control-color>input[type='color']::-webkit-color-swatch {
   width: 18px;
   max-width: 18px;
-  margin: 0;
 }
 
 .panel-control-color>input[type='color']::-webkit-color-swatch-wrapper {
@@ -306,7 +303,6 @@ nav {
   border-radius: var(--border-radius);
   padding: 8px 10px;
   background-color: var(--color-boton-default);
-  display: flex;
   box-sizing: border-box;
 }
 
@@ -317,20 +313,39 @@ nav {
 .panel-control-color>span {
   position: absolute;
   left: 35px;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   font-size: 14px;
 }
 
-.panel-control-columns {
+.panel-control-color.panel-control-column {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  width: calc(100% - 5px);
+  gap: 10px;
+  position: relative;
 }
 
-.panel-control-columns .panel-control-column {
+.select {
+  height: 36px;
+  width: 100%;
+  background-color: var(--color-boton-default);
+  border-radius: var(--border-radius);
+  transition: background-color 0.2s;
+  padding: 5px 10px;
+}
+
+.panel-control-column2 {
   width: calc(50% - 5px);
-  margin-bottom: 0;
+  margin-bottom: 5px;
+}
+
+.panel-control-columns2 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 /* Elements */
@@ -361,7 +376,7 @@ nav {
   padding: 16px;
   font-size: 40px;
   font-weight: 900;
-  font-family: 'Nanum Pen Script', cursive;
+  font-family: 'Nanum Pen Script', monospace;
 }
 
 .panel-buttons {
@@ -420,14 +435,18 @@ nav {
   display: none;
 }
 
+.visible {
+  display: flex;
+}
+
 .flex-container {
   display: flex;
-  align-items: center;
+  align-items: flex-end;
 }
 
 footer {
   padding: 12px 50px;
-  background-color: var(--color-header-footer);
+  background-color: var(--color-background);
   color: var(--color-text);
   font-size: small;
 }
@@ -446,10 +465,11 @@ footer a {
 /* Media Queries */
 
 @media (min-width: 1300px) {
+  /*
   .panel {
     display: block;
     box-shadow: none;
-  }
+  }*/
 
   .panel-close-button {
     display: none;
