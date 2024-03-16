@@ -8,32 +8,31 @@ const themeIconL = document.querySelector('#light-theme-icon');
 const activeLightTheme = () => {
     document.body.classList.remove('dark-theme');
     document.body.classList.add('light-theme');
-    themeBtnD.classList.toggle('oculto');
-    themeBtnL.classList.toggle('oculto');
-    themeIconD.classList.toggle('oculto');
-    themeIconL.classList.toggle('oculto');
+    themeBtnD.classList.toggle('hidden');
+    themeBtnL.classList.toggle('hidden');
+    themeIconD.classList.toggle('hidden');
+    themeIconL.classList.toggle('hidden');
 }
-
 themeBtnD.addEventListener('click', activeLightTheme );
-
 
 const activeDarkTheme = () => {
     document.body.classList.remove('light-theme');
     document.body.classList.add('dark-theme');
-    themeBtnL.classList.toggle('oculto');
-    themeBtnD.classList.toggle('oculto');
-    themeIconL.classList.toggle('oculto');
-    themeIconD.classList.toggle('oculto');
+    themeBtnL.classList.toggle('hidden');
+    themeBtnD.classList.toggle('hidden');
+    themeIconL.classList.toggle('hidden');
+    themeIconD.classList.toggle('hidden');
 }
-
 themeBtnL.addEventListener('click', activeDarkTheme);
 
-//Panel
+
+
+//SELECT PANEL
 const closePanelBtn = document.querySelector('#panel-close-button');
 const panel = document.querySelector('#panel');
 
 closePanelBtn.addEventListener('click', () => {
-    panel.classList.add('oculto');
+    panel.classList.add('hidden');
 });
 
 const imgPanelBtn = document.querySelector('#img-panel-button');
@@ -42,15 +41,84 @@ const imgPanel = document.querySelector('#panel-img');
 const textPanel = document.querySelector('#panel-text');
 
 const openImgPanel = () =>{
-    imgPanel.classList.remove('oculto');
-    textPanel.classList.add('oculto');
+    imgPanel.classList.remove('hidden');
+    textPanel.classList.add('hidden');
 }
 
 const openTextPanel = () =>{
-    textPanel.classList.remove('oculto');
-    imgPanel.classList.add('oculto');
+    textPanel.classList.remove('hidden');
+    imgPanel.classList.add('hidden');
 }
-
 
 imgPanelBtn.addEventListener('click', openImgPanel);
 textPanelBtn.addEventListener('click', openTextPanel);
+
+
+
+//IMAGE PANEL - URL
+const imageMeme = document.getElementById('image-meme');
+const imageUrl = document.getElementById('url-img-input');
+
+imageUrl.addEventListener('keyup', () => {
+    imageMeme.style.backgroundImage = `url(${imageUrl.value.trim()})`;
+})
+
+
+//IMAGE PANEL - BACKGROUND
+
+
+
+//IMAGE PANEL - FILTERS
+
+
+
+
+//TEXT PANEL - TOP TEXT
+const topText = document.getElementById('top-text');
+const topTextInput = document.getElementById('top-text-input');
+const topTextCheckbox = document.getElementById('no-top-text-checkbox');
+
+topTextInput.addEventListener('keyup', ()=>{
+    topText.innerHTML = topTextInput.value;
+})
+
+topTextCheckbox.addEventListener('click', ()=>{
+    if(topTextCheckbox.checked){
+        topText.innerHTML = '';
+    } else if(!topTextCheckbox.checked) {
+        topText.innerHTML = topTextInput.value;
+    }
+})
+
+
+//TEXT PANEL - BOTTOM TEXT
+const bottomText = document.getElementById('bottom-text');
+const bottomTextInput = document.getElementById('bottom-text-input');
+const bottomTextCheckbox = document.getElementById('no-bottom-text-checkbox');
+
+bottomTextInput.addEventListener('keyup', ()=>{
+    bottomText.innerHTML = bottomTextInput.value;
+})
+
+bottomTextCheckbox.addEventListener('click', ()=>{
+    if(bottomTextCheckbox.checked){
+        bottomText.innerHTML = '';
+    } else if(!bottomTextCheckbox.checked) {
+        bottomText.innerHTML = bottomTextInput.value;
+    }
+})
+
+
+//DOWNLOAD BUTTON
+const downloadMemeBtn = document.getElementById('download-meme-button');
+console.log(downloadMemeBtn);
+
+const donwloadMeme = () => {
+    domtoimage.toBlob(document.getElementById('canvas-meme')).then(function (blob) {
+      window.saveAs(blob, 'my-meme.png')
+    })
+  }
+
+downloadMemeBtn.addEventListener('click', donwloadMeme);
+
+
