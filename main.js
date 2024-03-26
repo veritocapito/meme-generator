@@ -76,7 +76,6 @@ blendModeSelector.addEventListener('change',(e)=>{
 
 blendModeColorInput.addEventListener('input', ()=>{
     const valueBgImage = blendModeColorInput.value;
-    console.log(valueBgImage);
     imageMeme.style.backgroundColor = valueBgImage;
     blendModeColor.innerHTML = valueBgImage.toUpperCase();
 });
@@ -190,7 +189,6 @@ const textCenterAlignButton = document.getElementById('text-center-align-button'
 const textRightAlignButton = document.getElementById('text-right-align-button');
 
 const alingTopText = (e) => {
-    console.log(e.target);
     if (e.target.id === 'text-left-align-button') {
         topText.style.justifyContent = 'flex-start';
         bottomText.style.justifyContent = 'flex-start';
@@ -207,6 +205,90 @@ const alingTopText = (e) => {
 textLeftAlignButton.addEventListener('click', alingTopText)
 textCenterAlignButton.addEventListener('click', alingTopText)
 textRightAlignButton.addEventListener('click', alingTopText)
+
+
+//TEXT PANEL - TEXT COLOR
+const textColor = document.getElementById('text-color');
+const textColorInput = document.getElementById('text-color-input');
+
+textColorInput.addEventListener('input', ()=>{
+    const valuetextColor = textColorInput.value;
+    topText.style.color = valuetextColor;
+    bottomText.style.color = valuetextColor;
+    textColor.innerHTML = valuetextColor.toUpperCase();
+});
+
+
+//TEXT PANEL - TEXT BACKGROUND COLOR
+const textBgColor = document.getElementById('text-background-color');
+const textBgColorInput = document.getElementById('text-background-color-input');
+
+textBgColorInput.addEventListener('input', ()=>{
+    const valuetextBgColor = textBgColorInput.value;
+    topText.style.backgroundColor = valuetextBgColor;
+    bottomText.style.backgroundColor = valuetextBgColor;
+    textBgColor.innerHTML = valuetextBgColor.toUpperCase();
+});
+
+
+//TEXT PANEL - BACKGROUND TRANSPARENT
+const noBgTextCheckbox = document.getElementById('text-no-background-checkbox');
+
+noBgTextCheckbox.addEventListener('click', () => {
+    if (noBgTextCheckbox.checked) {
+        topText.style.backgroundColor = 'transparent';
+        bottomText.style.backgroundColor = 'transparent';
+    } else if (!noBgTextCheckbox.checked) {
+        topText.style.backgroundColor = textBgColorInput.value;
+        bottomText.style.backgroundColor = textBgColorInput.value;
+    }
+})
+
+
+
+//TEXT PANEL - OUTLINE
+const noOutlineButton = document.getElementById('no-outline-button');
+const lightOutlineButton = document.getElementById('light-outline-button');
+const darkOutlineButton = document.getElementById('dark-outline-button');
+
+const setOutline = (e) => {
+    console.log(e.target);
+    if (e.target.id === 'no-outline-button') {
+        topText.style.textShadow = 'none';
+        bottomText.style.textShadow = 'none';
+    } else if (e.target.id === 'light-outline-button') {
+        topText.style.textShadow = `2px 2px #FFF, -2px 2px #FFF, 2px -2px #FFF, -2px -2px #FFF`;
+        bottomText.style.textShadow = `2px 2px #FFF, -2px 2px #FFF, 2px -2px #FFF, -2px -2px #FFF`;
+    } else if (e.target.id === 'dark-outline-button') {
+        topText.style.textShadow = `2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000`;
+        bottomText.style.textShadow = `2px 2px #000, -2px 2px #000, 2px -2px #000, -2px -2px #000`;
+    }
+}
+
+noOutlineButton.addEventListener('click', setOutline)
+lightOutlineButton.addEventListener('click', setOutline)
+darkOutlineButton.addEventListener('click', setOutline)
+
+
+
+//TEXT PANEL - PADDING
+const paddingInput = document.getElementById('padding-input');
+
+const setPadding = (e) => {
+    topText.style.padding = e.target.value + 'px';
+    bottomText.style.padding = e.target.value + 'px';
+}
+paddingInput.addEventListener('input', setPadding);
+
+
+//TEXT PANEL - LINE HEIGHT
+const lineHeightInput = document.getElementById('line-height-input');
+
+const setLineHeight = (e) => {
+    topText.style.lineHeight = e.target.value
+    bottomText.style.lineHeight = e.target.value
+}
+lineHeightInput.addEventListener('change', setLineHeight);
 
 
 //DOWNLOAD BUTTON
