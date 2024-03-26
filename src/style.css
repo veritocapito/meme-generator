@@ -17,7 +17,7 @@
 body.dark-theme {
   --color-header: #061231;
   --color-background: #061231;
-  --color-meme-container: #3a4155;
+  --color-meme-container: linear-gradient(to right, #242b3d, #2e3547, #383f51, #434a5b, #4e5565);
   --color-panel: #242b3d;
   --color-boton-default: #393e49;
   --color-boton-default-hover: #4e5565;
@@ -31,7 +31,7 @@ body.dark-theme {
 body.light-theme {
   --color-header: #c0c0c0;
   --color-background: #a5a0a0;
-  --color-meme-container: #e0dddd;
+  --color-meme-container: linear-gradient(to right, #e0dddd, #e3e0e1, #e5e4e5, #e8e8e8, #ebebeb);
   --color-panel: #ebebeb;
   --color-boton-default: #a5a0a0;
   --color-boton-default-hover: #bdbdbd;
@@ -115,7 +115,9 @@ input[type='color']::-webkit-color-swatch {
   margin-right: 10px;
 }
 
-#blend-mode-color{
+#blend-mode-color, 
+#text-color,
+#text-background-color{
   margin-top: 0.3rem;
   font-size: 1rem;
 }
@@ -148,7 +150,7 @@ nav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: var(--color-meme-container);
+  background-image: var(--color-meme-container);
   padding: 20px;
 }
 
