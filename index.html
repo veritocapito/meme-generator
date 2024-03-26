@@ -67,10 +67,9 @@
             <h3 class="panel-control-title">BACKGROUND</h3>
             <div class="panel-control-columns">
               <div class="panel-control-color panel-control-column">
-                <input aria-label="Color de fondo de imagen" type="color" id="blend-mode-color-input" value="#FFFFFF"
-                  colorpick-eyedropper-active="true">
+                <input aria-label="Image background color" type="color" id="blend-mode-color-input" value="#FFFFFF">
                 <span id="blend-mode-color" aria-hidden="true">#FFFFFF</span>
-                <select aria-label="Modo de mezcla de fondo de imagen" id="blend-mode-select"
+                <select aria-label="Image blend mode color" id="blend-mode-select"
                   class="panel-control-input select">
                   <option value="unset">UNSET</option>
                   <option value="lighten">LIGHTEN</option>
@@ -114,8 +113,8 @@
               <input type="range" id="hue-slider" min="0" max="360" value="0">
             </div>
             <div class="panel-control-slider">
-              <label for="saturate-slider">SATURATE</label>
-              <input type="range" id="saturate-slider" min="100" max="1000" value="100" step="10">
+              <label for="saturation-slider">SATURATION</label>
+              <input type="range" id="saturation-slider" min="100" max="1000" value="100" step="10">
             </div>
             <div class="panel-control-slider">
               <label for="invert-slider">INVERT</label>
@@ -152,28 +151,30 @@
             <select name="Font family" id="text-font-select" class="panel-control-input"
               aria-label="Font family">
               <option value="Arial">Arial</option>
-              <option value="Arial Black">Arial Black</option>
+              <option value="Nanum Pen Script" selected="">Nanum Pen Script</option>
               <option value="American Typewriter">American Typewriter</option>
               <option value="Andale Mono">Andale Mono</option>
               <option value="Comic Sans MS">Comic Sans MS</option>
               <option value="Helvetica">Helvetica</option>
-              <option value="Impact" selected="">Impact</option>
+              <option value="Impact">Impact</option>
               <option value="Verdana">Verdana</option>
               <option value="Times New Roman">Times New Roman</option>
             </select>
             <div class="flex-container">
 
-              <input type="number" name="Tamaño de fuente" aria-label="Tamaño de fuente" class="panel-control-input"
-                id="text-size-input" min="12" value="40">
+              <input type="number" name="Font size" aria-label="Font size" class="panel-control-input"
+                id="text-size-input" min="12" max="72" value="40">
 
               <div class="buttons-container buttons-alignment">
-                <button class="button button-default" id="text-left-align-button"
-                  aria-label="Alinear texto a la izquierda"><i class="fas fa-align-left"
-                    aria-hidden="true"></i></button>
-                <button class="button button-default" id="text-center-align-button"
-                  aria-label="Alinear texto al centro"><i class="fas fa-align-center" aria-hidden="true"></i></button>
-                <button class="button button-default" id="text-right-align-button"
-                  aria-label="Alineat texto a la derecha"><i class="fas fa-align-right" aria-hidden="true"></i></button>
+                <button class="button button-default" id="text-left-align-button" aria-label="Align text to the left">
+                  <i class="fas fa-align-left" aria-hidden="true" id="text-left-align-button"></i>
+                </button>
+                <button class="button button-default" id="text-center-align-button" aria-label="Align text to the center">
+                  <i class="fas fa-align-center" aria-hidden="true" id="text-center-align-button"></i>
+                </button>
+                <button class="button button-default" id="text-right-align-button" aria-label="Align text to the right">
+                  <i class="fas fa-align-right" aria-hidden="true" id="text-right-align-button"></i>
+                </button>
               </div>
             </div>
           </div>
