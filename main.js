@@ -43,11 +43,13 @@ const textPanel = document.querySelector('#panel-text');
 const openImgPanel = () => {
     imgPanel.classList.remove('hidden');
     textPanel.classList.add('hidden');
+    panel.classList.remove('hidden');
 }
 
 const openTextPanel = () => {
     textPanel.classList.remove('hidden');
     imgPanel.classList.add('hidden');
+    panel.classList.remove('hidden');
 }
 
 imgPanelBtn.addEventListener('click', openImgPanel);
