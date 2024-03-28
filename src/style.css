@@ -142,13 +142,11 @@ nav {
   flex-grow: 1;
   flex-direction: column;
   justify-content: center;
-  
 }
 
 .meme-container {
   flex-grow: 1;
   display: flex;
-  max-height: 600px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -370,7 +368,7 @@ nav {
 .canvas-meme {
   width: 90%;
   max-width: 600px;
-  height: 600px;
+  height: 500px;
   background-color: black;
   position: relative;
   display: flex;
@@ -417,6 +415,7 @@ nav {
 
 #default-filters-button {
   margin-top: 30px;
+  color: var(--color-text);
 }
 
 #download-meme-button {
@@ -463,6 +462,9 @@ footer {
   color: var(--color-text);
   font-size: small;
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer p {
@@ -478,6 +480,10 @@ footer a {
 /* Media Queries */
 
 @media (min-width: 1300px) {
+
+  body{
+    height: 100vh;
+  }
 
   nav{
     width: 60%;
@@ -504,6 +510,10 @@ footer a {
     flex-direction: row;
     justify-content: space-between;
     gap: 3rem;
+  }
+
+  footer{
+    align-items: flex-start;
   }
 }
 

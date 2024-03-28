@@ -72,11 +72,11 @@ const blendModeSelector = document.getElementById('blend-mode-select');
 const blendModeColor = document.getElementById('blend-mode-color');
 const blendModeColorInput = document.getElementById('blend-mode-color-input');
 
-blendModeSelector.addEventListener('change',(e)=>{  
+blendModeSelector.addEventListener('change', (e) => {
     imageMeme.style.backgroundBlendMode = e.target.value;
 });
 
-blendModeColorInput.addEventListener('input', ()=>{
+blendModeColorInput.addEventListener('input', () => {
     const valueBgImage = blendModeColorInput.value;
     imageMeme.style.backgroundColor = valueBgImage;
     blendModeColor.innerHTML = valueBgImage.toUpperCase();
@@ -136,6 +136,9 @@ const topText = document.getElementById('top-text');
 const topTextInput = document.getElementById('top-text-input');
 const topTextCheckbox = document.getElementById('no-top-text-checkbox');
 
+topTextInput.addEventListener('click', (e) =>{
+    e.target.value ='';
+})
 topTextInput.addEventListener('keyup', () => {
     topText.innerHTML = topTextInput.value;
 })
@@ -153,6 +156,10 @@ topTextCheckbox.addEventListener('click', () => {
 const bottomText = document.getElementById('bottom-text');
 const bottomTextInput = document.getElementById('bottom-text-input');
 const bottomTextCheckbox = document.getElementById('no-bottom-text-checkbox');
+
+bottomTextInput.addEventListener('click', (e) =>{
+    e.target.value ='';
+})
 
 bottomTextInput.addEventListener('keyup', () => {
     bottomText.innerHTML = bottomTextInput.value;
@@ -213,7 +220,7 @@ textRightAlignButton.addEventListener('click', alingTopText)
 const textColor = document.getElementById('text-color');
 const textColorInput = document.getElementById('text-color-input');
 
-textColorInput.addEventListener('input', ()=>{
+textColorInput.addEventListener('input', () => {
     const valuetextColor = textColorInput.value;
     topText.style.color = valuetextColor;
     bottomText.style.color = valuetextColor;
@@ -225,7 +232,7 @@ textColorInput.addEventListener('input', ()=>{
 const textBgColor = document.getElementById('text-background-color');
 const textBgColorInput = document.getElementById('text-background-color-input');
 
-textBgColorInput.addEventListener('input', ()=>{
+textBgColorInput.addEventListener('input', () => {
     const valuetextBgColor = textBgColorInput.value;
     topText.style.backgroundColor = valuetextBgColor;
     bottomText.style.backgroundColor = valuetextBgColor;
@@ -296,13 +303,11 @@ lineHeightInput.addEventListener('change', setLineHeight);
 //DOWNLOAD BUTTON
 const downloadMemeBtn = document.getElementById('download-meme-button');
 
-
-const donwloadMeme = () => {
-    domtoimage.toBlob(document.getElementById('canvas-meme')).then(function (blob) {
-        window.saveAs(blob, 'my-meme.png')
-    })
-}
-
-downloadMemeBtn.addEventListener('click', donwloadMeme);
-
-
+downloadMemeBtn.addEventListener('click', () =>{
+    html2canvas(document.getElementById('canvas-meme')).then( canvas=> {
+        var a = document.createElement('a');
+        a.download = 'captured.png';
+        a.href = canvas.toDataURL('image/png');
+        a.click();
+    });
+});

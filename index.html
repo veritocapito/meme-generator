@@ -14,7 +14,6 @@
     <meta property="og:image" content="https://i.postimg.cc/GpcqL2Pb/meme.png">
     <meta property="og:description" content="Make your own MEME and have fun!">
     <meta property="og:site_name" content="Meme Generator">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="shortcut icon" href="./src/favicon.png" type="image/x-icon">
     <link rel="stylesheet" href="./src/style.css" crossorigin="anonymous">
     <title>Meme Generator</title>
@@ -26,13 +25,13 @@
       <nav>
         <h1 class="app-title">Meme Generator</h1>
         <div class="buttons-container panel-buttons">
-          <button class="button button-text" id="img-panel-button"><i
+          <button class="button button-text" id="img-panel-button" aria-label="Open image panel button"><i
               class="fas fa-file-image button-icon-text"></i>IMAGE</button>
-          <button class="button button-text" id="text-panel-button"><i
+          <button class="button button-text" id="text-panel-button" aria-label="Open text panel button"><i
               class="fas fa-font button-icon-text"></i>TEXT</button>
-          <button class="button button-text button-theme button-theme-dark" id="dark-theme-button">
+          <button class="button button-text button-theme button-theme-dark" id="dark-theme-button" aria-label="Select dark theme button">
             <i class="fas fa-sharp fa-solid fa-sun button-icon-text" id="dark-theme-icon"></i></button>
-          <button class="button button-text button-theme button-theme-light hidden" id="light-theme-button">
+          <button class="button button-text button-theme button-theme-light hidden" id="light-theme-button" aria-label="Select light theme button">
             <i class="fas fa-sharp fa-solid fa-moon button-icon-text hidden" id="light-theme-icon"></i></button>
         </div>
       </nav>
@@ -46,7 +45,7 @@
           <div id="image-meme"></div>
           <p id="bottom-text" class="text-meme">BOTTOM TEXT</p>
         </div>
-        <button type="button" class="button button-text" id="download-meme-button">
+        <button type="button" class="button button-text" id="download-meme-button" aria-label="Download meme button">
           <i class="fas fa-download button-icon-text"></i>Download Meme</button>
       </main>
       <!-- ASIDE PANEL -->
@@ -60,7 +59,7 @@
           <h2 class="panel-title">IMAGE</h2>
           <div class="panel-control">
             <h3 class="panel-control-title">URL</h3>
-            <input type="text" class="panel-control-input" id="url-img-input" aria-label="Image URL">
+            <input type="text" class="panel-control-input" id="url-img-input" title="Insert image url" aria-label="Image URL">
           </div>
           <!-- BACKGROUND -->
           <div class="panel-control">
@@ -240,9 +239,8 @@
       </p>
     </footer>
     <script src="https://kit.fontawesome.com/edd2efc64a.js" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" integrity="sha512-01CJ9/g7e8cUmY0DFTMcUw/ikS799FHiOA0eyHsUWfOetgbx/t6oV4otQ5zXKQyIrQGTHSmRVPIgrgLcZi/WMA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="http://cdn.jsdelivr.net/g/filesaver.js"></script>
-    <script type="module" src="./main.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
   </body>
 
 </html>

@@ -15,7 +15,9 @@ This project was developed between January and March 2024, as a result of the ro
 
 ### Technologies: :eight_pointed_black_star:
 
-HTML + CSS + JavaScript
+HTML + CSS + JavaScript + Analytics
+
+[Analytics.png](https://postimg.cc/qztsT6Q5)
 
 
 ### Mentors :raised_hands:
