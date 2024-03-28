@@ -11,13 +11,14 @@
 
 ### Summary  :memo:
 This project was developed between January and March 2024, as a result of the route proposed by "ADA ITW Academy". 
+In this project I developed an editor to generate memes. It is an app where user can manipulate text and image of the meme. Developed with JavaScript to dynamically modify its content and properties. When user is satisfied, he can download his meme to use it or share it wherever he wants.
 
 
 ### Technologies: :eight_pointed_black_star:
 
 HTML + CSS + JavaScript + Analytics
 
-[Analytics.png](https://postimg.cc/qztsT6Q5)
+[![Analytics.png](https://i.postimg.cc/RVdXwct4/Analytics.png)](https://postimg.cc/qztsT6Q5)
 
 
 ### Mentors :raised_hands:
