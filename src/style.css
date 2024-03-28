@@ -151,7 +151,7 @@ nav {
   justify-content: center;
   align-items: center;
   background-image: var(--color-meme-container);
-  padding: 0.9rem 0;
+  padding: 0.8rem 0;
 }
 
 .panel {
@@ -457,18 +457,17 @@ nav {
 }
 
 footer {
-  padding: 0.6rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
   background-color: var(--color-background);
   color: var(--color-text);
   font-size: small;
   width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-end;
   justify-content: center;
-}
-
-footer p {
-  margin: 0 auto;
+  position: relative;
+  bottom: 0;
 }
 
 footer a {
@@ -493,9 +492,6 @@ footer a {
     display: none;
   }
 
-  footer p{
-    width: 960px;
-  }
 }
 
 @media (min-width: 900px) {
@@ -512,9 +508,6 @@ footer a {
     gap: 3rem;
   }
 
-  footer{
-    align-items: flex-start;
-  }
 }
 
 @media (min-width: 400px) {
