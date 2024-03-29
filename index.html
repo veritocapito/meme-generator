@@ -37,9 +37,9 @@
       </nav>
     </header>
 
-    <div class="editor-container">
+    <main class="editor-container">
     <!-- MEME CONTAINER -->
-      <main class="meme-container">
+      <div class="meme-container">
         <div class="canvas-meme" id="canvas-meme">
           <p id="top-text" class="text-meme">TOP TEXT</p>
           <div id="image-meme"></div>
@@ -47,7 +47,7 @@
         </div>
         <button type="button" class="button button-text" id="download-meme-button" aria-label="Download meme button">
           <i class="fas fa-download button-icon-text"></i>Download Meme</button>
-      </main>
+      </div>
       <!-- ASIDE PANEL -->
       <aside class="panel" id="panel">
         <button class="panel-close-button" id="panel-close-button" aria-label="Close panel">
@@ -166,13 +166,13 @@
 
               <div class="buttons-container buttons-alignment">
                 <button class="button button-default" id="text-left-align-button" aria-label="Align text to the left">
-                  <i class="fas fa-align-left" aria-hidden="true" id="text-left-align-button"></i>
+                  <i class="fas fa-align-left" aria-hidden="true" id="text-left-align-icon"></i>
                 </button>
                 <button class="button button-default" id="text-center-align-button" aria-label="Align text to the center">
-                  <i class="fas fa-align-center" aria-hidden="true" id="text-center-align-button"></i>
+                  <i class="fas fa-align-center" aria-hidden="true" id="text-center-align-icon"></i>
                 </button>
                 <button class="button button-default" id="text-right-align-button" aria-label="Align text to the right">
-                  <i class="fas fa-align-right" aria-hidden="true" id="text-right-align-button"></i>
+                  <i class="fas fa-align-right" aria-hidden="true" id="text-right-align-icon"></i>
                 </button>
               </div>
             </div>
@@ -185,7 +185,7 @@
                 <h3 class="panel-control-title">COLOR</h3>
                 <div class="panel-control-color">
                   <input name="Text color" type="color" id="text-color-input" value="#000000"
-                    aria-label="Text color" colorpick-eyedropper-active="true">
+                    aria-label="Text color">
                   <span id="text-color" aria-hidden="true">#000000</span>
                 </div>
               </div>
@@ -194,7 +194,7 @@
                 <h3 class="panel-control-title">BACKGROUND</h3>
                 <div class="panel-control-color">
                   <input name="Color de fondo de texto" type="color" id="text-background-color-input" value="#FFFFFF"
-                    aria-label="Color de fondo de texto" colorpick-eyedropper-active="true">
+                    aria-label="Color de fondo de texto">
                   <span id="text-background-color" aria-hidden="true">#FFFFFF</span>
                 </div>
               </div>
@@ -216,8 +216,7 @@
 
           <div class="panel-control">
             <h3 class="panel-control-title">PADDING</h3>
-            <input type="number" id="padding-input" class="panel-control-input" aria-label="Espaciado" min="10" max="50"
-              min="35" value="35">
+            <input type="number" id="padding-input" class="panel-control-input" aria-label="Espaciado" min="10" max="50" value="35">
           </div>
 
           <div class="panel-control">
@@ -233,14 +232,16 @@
           </div>
         </section>
       </aside>
-    </div>
+    </main>
     <footer>
       <p>2024 - Develop by <a href="https://www.linkedin.com/in/vscapobianco/" target="_blank">@veritocapito</a>
       </p>
     </footer>
     <script src="https://kit.fontawesome.com/edd2efc64a.js" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
-    <script type="text/javascript" src="./src/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+    <script src="./src/main.js"></script>
+    <!-- https://github.com/tsayen/dom-to-image -->
+    <script src="./src/dom-to-image.js"></script>
   </body>
 
 </html>

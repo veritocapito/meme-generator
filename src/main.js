@@ -136,8 +136,8 @@ const topText = document.getElementById('top-text');
 const topTextInput = document.getElementById('top-text-input');
 const topTextCheckbox = document.getElementById('no-top-text-checkbox');
 
-topTextInput.addEventListener('click', (e) =>{
-    e.target.value ='';
+topTextInput.addEventListener('click', (e) => {
+    e.target.value = '';
 })
 topTextInput.addEventListener('keyup', () => {
     topText.innerHTML = topTextInput.value;
@@ -157,8 +157,8 @@ const bottomText = document.getElementById('bottom-text');
 const bottomTextInput = document.getElementById('bottom-text-input');
 const bottomTextCheckbox = document.getElementById('no-bottom-text-checkbox');
 
-bottomTextInput.addEventListener('click', (e) =>{
-    e.target.value ='';
+bottomTextInput.addEventListener('click', (e) => {
+    e.target.value = '';
 })
 
 bottomTextInput.addEventListener('keyup', () => {
@@ -198,13 +198,13 @@ const textCenterAlignButton = document.getElementById('text-center-align-button'
 const textRightAlignButton = document.getElementById('text-right-align-button');
 
 const alingTopText = (e) => {
-    if (e.target.id === 'text-left-align-button') {
+    if (e.target.id === 'text-left-align-button' || e.target.id === 'text-left-align-icon') {
         topText.style.justifyContent = 'flex-start';
         bottomText.style.justifyContent = 'flex-start';
-    } else if (e.target.id === 'text-center-align-button') {
+    } else if (e.target.id === 'text-center-align-button' || e.target.id === 'text-center-align-icon') {
         topText.style.justifyContent = 'center';
         bottomText.style.justifyContent = 'center';
-    } else if (e.target.id === 'text-right-align-button') {
+    } else if (e.target.id === 'text-right-align-button' || e.target.id === 'text-right-align-icon') {
         topText.style.justifyContent = 'flex-end';
         bottomText.style.justifyContent = 'flex-end';
     }
@@ -303,13 +303,20 @@ lineHeightInput.addEventListener('change', setLineHeight);
 //DOWNLOAD BUTTON
 const downloadMemeBtn = document.getElementById('download-meme-button');
 
-downloadMemeBtn.addEventListener('click', () =>{
-    html2canvas(document.getElementById('canvas-meme'),{
+downloadMemeBtn.addEventListener('click', () => {
+
+    container_meme = document.querySelector('#canvas-meme');
+    config = {
+        quality: 1 // without lowering the quality
+    }
+
+    // https://github.com/tsayen/dom-to-image
+    domtoimage.toJpeg(container_meme, config,{
         useCORS: true
-    }).then( canvas=> {
-        var a = document.createElement('a');
-        a.download = 'captured.png';
-        a.href = canvas.toDataURL('image/png');
-        a.click();
+    }).then(function (dataUrl) {
+        let link = document.createElement('a');
+        link.download = 'captured.png';
+        link.href = dataUrl;
+        link.click();
     });
 });
